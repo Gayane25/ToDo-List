@@ -1,12 +1,12 @@
 import React from 'react'
 import TodoItem from './TodoItem' 
-import {useTodoContext} from "../state/initialState";
 
-function TodoList() {
-    const {state} = useTodoContext();
-    console.log(state);
+function TodoList({state}) {
+    
   return (
-    <TodoItem />
+    <div>
+    {state.todos.map((item)=><TodoItem key ={item.id} item={item} />)}
+    </div>
   )
 }
 

@@ -6,4 +6,4 @@ function Active() {
   )
 }
 
-export default Active
+export default Active;

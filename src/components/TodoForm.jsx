@@ -1,18 +1,16 @@
 import React, {useId, useState} from 'react';
-import {useTodoContext, ACTION_TYPES} from "../state/initialState";
+import { ACTION_TYPES} from "../state/initialState";
 
-function TodoForm() {
+function TodoForm({dispatch}) {
 
-    const todoId = useId();
-    const {state, dispatch} = useTodoContext();
+    let todoId = (useId() + Math.random()*10);
     const [description, setDescription] = useState("");
 
     const addTodo = (evt)=>{
         evt.preventDefault();
         dispatch({type: ACTION_TYPES.ADD_TODO, payload:{id:todoId, description:description}});
         setDescription("");
-        console.log(state);
-
+        
     }
 
   return (

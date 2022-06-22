@@ -2,7 +2,10 @@ import React from 'react'
 
 function TodoForm() {
   return (
-    <div>TodoForm</div>
+    <form>
+      <input type="text" placeholder='add details'/>
+      <button>Add</button>
+    </form>
   )
 }
 

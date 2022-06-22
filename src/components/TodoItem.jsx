@@ -1,5 +1,7 @@
 import React from 'react'
 import {useTodoContext, ACTION_TYPES} from "../state/initialState";
+import {ItemStyled} from "./TodoItemStyled";
+import bin from "../assets/61-trash.svg"
 
 function TodoItem({item}) {
    
@@ -12,11 +14,12 @@ function TodoItem({item}) {
     }
    
   return (
-    <div>
-        <input type="checkbox" checked={item.isCompleted} onChange={handleCompleted}/>
-        <h3>{item.description}</h3>
-        {item.isCompleted  && <span onClick={handleDelete}>Delete</span>}
-    </div>
+    <ItemStyled>
+      <input type="checkbox" checked={item.isCompleted} onChange={handleCompleted} name ={item.description}/> 
+       <label style={item.isCompleted ? {textDecoration: "line-through"}:null} htmlFor={item.description}>{item.description}
+        </label>
+        {item.isCompleted && <span onClick={handleDelete}><img src ={bin} alt ="recycle bin"/></span>}
+    </ItemStyled>
   )
 }
 

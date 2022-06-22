@@ -16,14 +16,14 @@ const {state}=useTodoContext();
   },[state])
 
   return (
-    <>
-      <Header /><br/>
+    <div className='wrapper'>
+      <Header />
       <Routes> 
         <Route path='/' element={<All/>} />
         <Route path='/active' element={<Active/>}/>
         <Route path='/completed' element={<Completed />}/>
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, {useId, useState} from 'react';
 import { ACTION_TYPES, useTodoContext} from "../state/initialState";
-
+import {FormStyled} from "./TodoFormStyled";
 function TodoForm() {
 
     let todoId = (useId() + Math.random()*10);
@@ -15,10 +15,10 @@ function TodoForm() {
     }
 
   return (
-    <form onSubmit ={addTodo}>
+    <FormStyled onSubmit ={addTodo}>
       <input type="text" value ={description} onChange ={(event)=>setDescription(event.target.value)} placeholder='add details'/>
       <button>Add</button>
-    </form>
+    </FormStyled>
   )
 }
 

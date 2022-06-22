@@ -10,6 +10,7 @@ const ACTION_TYPES ={
     MAKE_COMPLETED:"MAKE_COMPLETED",
     DELETE_TODO:"DELETE_TODO",
     DELETE_ALL:"DELETE_ALL",
+    READY_TO_DELETE:"READY_TO_DELETE"
     
 }
 
@@ -31,7 +32,12 @@ function reducer (state, action){
                 todos:completed,
             }
         }
-      
+        case ACTION_TYPES.READY_TO_DELETE :{
+            return {
+                ...state,
+                deletingTodoMode:true
+            }
+        }
         case ACTION_TYPES.DELETE_TODO :{
             let newtodolist = state.todos.filter((item)=>item.id !== action.payload.id)
             return {...state,todos:newtodolist}

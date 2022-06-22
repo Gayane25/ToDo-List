@@ -1,9 +1,10 @@
 import React from 'react';
 import TodoItem from '../components/TodoItem';
-import {useTodoContext, ACTION_TYPES} from "../state/initialState"
+import {useTodoContext, ACTION_TYPES} from "../state/initialState";
+
 function Completed() {
     const {state, dispatch} = useTodoContext();
-    
+
     const deleteAll =()=>{
         dispatch({type:ACTION_TYPES.DELETE_ALL})
     }

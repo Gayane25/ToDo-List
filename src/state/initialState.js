@@ -2,13 +2,15 @@ import { createContext, useContext, useReducer } from "react";
 
 const initialState = {
     todos:[],
+    deletingTodoMode:false
 }
 
 const ACTION_TYPES ={
     ADD_TODO:"ADD_TODO",
     MAKE_COMPLETED:"MAKE_COMPLETED",
     DELETE_TODO:"DELETE_TODO",
-    DELETE_ALL:"DELETE_ALL"
+    DELETE_ALL:"DELETE_ALL",
+    
 }
 
 function reducer (state, action){
@@ -29,6 +31,7 @@ function reducer (state, action){
                 todos:completed,
             }
         }
+      
         case ACTION_TYPES.DELETE_TODO :{
             let newtodolist = state.todos.filter((item)=>item.id !== action.payload.id)
             return {...state,todos:newtodolist}

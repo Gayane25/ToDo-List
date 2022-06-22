@@ -5,8 +5,6 @@ import {useTodoContext} from "../state/initialState"
 
 function Active() {
     const {state} =useTodoContext();
-    
-    
   return (
     <div>
         <TodoForm />

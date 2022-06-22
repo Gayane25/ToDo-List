@@ -1,9 +1,10 @@
 import React, {useId, useState} from 'react';
-import { ACTION_TYPES} from "../state/initialState";
+import { ACTION_TYPES, useTodoContext} from "../state/initialState";
 
-function TodoForm({dispatch}) {
+function TodoForm() {
 
     let todoId = (useId() + Math.random()*10);
+    const {dispatch} = useTodoContext();
     const [description, setDescription] = useState("");
 
     const addTodo = (evt)=>{

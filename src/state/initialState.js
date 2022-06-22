@@ -25,7 +25,10 @@ const Context = createContext(initialState);
 const useTodoContext =()=> useContext(Context);
 
 export function ContextProvider({children}){
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, initialState,()=>{
+        const localData = localStorage.getItem('todos');
+        return localData? JSON.parse(localData):initialState
+      });
     return <Context.Provider value={{state, dispatch}}>
             {children}
     </Context.Provider>

@@ -1,11 +1,20 @@
 import './App.css';
+import {useEffect} from "react"
 import {Routes,Route} from "react-router-dom";
 import All from './pages/All';
 import Active from './pages/Active';
 import Completed from './pages/Completed';
 import Header from './components/Header';
+import {useTodoContext} from "./state/initialState"
 
 function App() {
+
+const {state}=useTodoContext();
+
+  useEffect(()=>{
+    localStorage.setItem('todos', JSON.stringify(state))
+  },[state])
+
   return (
     <>
       <Header /><br/>

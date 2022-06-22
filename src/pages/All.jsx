@@ -1,19 +1,17 @@
 import React from 'react'
 import TodoForm from '../components/TodoForm'
-import TodoList from '../components/TodoList';
+import TodoItem from '../components/TodoItem';
 import {useTodoContext, ACTION_TYPES} from "../state/initialState";
 
 function All() {
     const {state, dispatch} = useTodoContext();
 
-    const deleteAll =()=>{
-        dispatch({type:ACTION_TYPES.DELETE_ALL})
-    }
+   
   return (
     <div>
         <TodoForm dispatch={dispatch}/>
-        <TodoList state={state}/>
-        <button onClick={deleteAll}>Delete all</button>
+        {state.todos.map((item)=><TodoItem key ={item.id} item={item} />)}
+       
     </div>
   )
 }

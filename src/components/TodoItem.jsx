@@ -5,7 +5,8 @@ import bin from "../assets/61-trash.svg"
 
 function TodoItem({item}) {
    
-    const {dispatch} =useTodoContext();
+    const {state, dispatch} =useTodoContext();
+  console.log(state)
     const handleCompleted =()=>{
         dispatch({type:ACTION_TYPES.MAKE_COMPLETED, payload:{id:item.id}})
     }
@@ -15,10 +16,13 @@ function TodoItem({item}) {
    
   return (
     <ItemStyled>
+      <div>
       <input type="checkbox" checked={item.isCompleted} onChange={handleCompleted} name ={item.description}/> 
        <label style={item.isCompleted ? {textDecoration: "line-through"}:null} htmlFor={item.description}>{item.description}
         </label>
-        {item.isCompleted && <span onClick={handleDelete}><img src ={bin} alt ="recycle bin"/></span>}
+      </div>
+      
+        {item.isCompleted && (<span onClick={handleDelete}><img src ={bin} alt ="recycle bin"/></span>)}
     </ItemStyled>
   )
 }

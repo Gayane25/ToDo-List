@@ -16,7 +16,9 @@ function Completed() {
         { 
             state.todos.filter((item)=>item.isCompleted ===true).map((item)=><TodoItem key ={item.id} item={item}/>)
         }
+        <div style={{textAlign:"end"}}>
          <DeleteButton onClick={deleteAll}><img src={bin} alt ="delete"/> Delete all</DeleteButton>
+         </div>
     </div>
   )
 }

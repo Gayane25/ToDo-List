@@ -2,7 +2,6 @@ import { createContext, useContext, useReducer } from "react";
 
 const initialState = {
     todos:[],
-    deletingTodoMode:false
 }
 
 const ACTION_TYPES ={
@@ -17,7 +16,7 @@ const ACTION_TYPES ={
 function reducer (state, action){
     switch(action.type) {
         case ACTION_TYPES.ADD_TODO :{
-            return {...state, todos:[...state.todos, {id:action.payload.id, description:action.payload.description, isCompleted:false}]}
+            return {...state, todos:[...state.todos, {id:action.payload.id, description:action.payload.description, isCompleted:false, deleting:false}]}
         }
         case ACTION_TYPES.MAKE_COMPLETED :{
             const completed = state.todos.map((todo)=>{
@@ -33,9 +32,16 @@ function reducer (state, action){
             }
         }
         case ACTION_TYPES.READY_TO_DELETE :{
+            let ready = state.todos.map((item)=>{
+                if(item.isCompleted===true){
+                    return {...item, deleting:true}
+                } else{
+                    return item;
+                }
+            })
             return {
                 ...state,
-                deletingTodoMode:true
+                todos:ready
             }
         }
         case ACTION_TYPES.DELETE_TODO :{
@@ -68,10 +74,6 @@ export function ContextProvider({children}){
             {children}
     </Context.Provider>
 }
-
-
-
-
 
 
 export {initialState, reducer, ACTION_TYPES, useTodoContext};

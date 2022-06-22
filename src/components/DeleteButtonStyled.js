@@ -14,6 +14,7 @@ export const DeleteButton = styled.button`
     @font-face {
     font-family:'Montserrat';
     src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    
 }
 
 img {

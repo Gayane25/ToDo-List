@@ -5,8 +5,6 @@ import {HeaderStyled} from "./HeaderStyled";
 function Header() {
   let activeStyle = {
 
-    // paddingLeft: "15px",
-    // paddingRight: "15px",
     borderBottom:"4px solid #2F80ED",
     textDecoration:"none",
     paddingBottom:"30px"

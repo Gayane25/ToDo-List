@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import TodoItem from '../components/TodoItem';
 import {useTodoContext, ACTION_TYPES} from "../state/initialState";
 import { DeleteButton } from '../components/DeleteButtonStyled';

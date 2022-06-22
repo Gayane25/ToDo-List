@@ -8,13 +8,12 @@ import Header from './components/Header';
 function App() {
   return (
     <>
-    <Header /><br/>
-    <Routes>
-       
-     <Route path='/' element={<All/>} />
-     <Route path='/active' element={<Active/>}/>
-     <Route path='/completed' element={<Completed />}/>
-    </Routes>
+      <Header /><br/>
+      <Routes> 
+        <Route path='/' element={<All/>} />
+        <Route path='/active' element={<Active/>}/>
+        <Route path='/completed' element={<Completed />}/>
+      </Routes>
     </>
   );
 }
